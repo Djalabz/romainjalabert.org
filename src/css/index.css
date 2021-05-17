@@ -1,0 +1,39 @@
+
+body {
+    font-family: 'montserrat';
+    margin: 0;
+}
+
+
+
+.logo {
+    width: 3em;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1024px;
+    margin: auto;
+    margin-top: 1em;
+    margin-bottom: 1em; 
+}
+
+.menu {
+    display: flex;
+}
+
+.menu>a {
+    margin-right: 2em;
+    align-self: center;
+    text-decoration: none;
+}
+
+.head-banner {
+    height: 600px;
+    object-fit: cover;
+    width: 100%;
+    margin: none;
+    object-position: 0% 50%;
+    filter: contrast(2.5)hue-rotate(190deg);
+}
