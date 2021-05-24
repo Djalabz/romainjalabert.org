@@ -2,12 +2,29 @@
 body {
     font-family: 'montserrat';
     margin: 0;
+    color: darkblue;
 }
-
-
 
 .logo {
     width: 3em;
+}
+
+.logo:hover {
+    animation: 'pulse';
+}
+
+.logo-container {
+    color: darkblue;
+    display: flex;
+}
+
+.logo-container>p {
+    margin-left: 1.5em;
+}
+
+.logo-container>p>span {
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 .header {
@@ -15,8 +32,11 @@ body {
     justify-content: space-between;
     max-width: 1024px;
     margin: auto;
-    margin-top: 1em;
+    margin-top: 2.5em;
     margin-bottom: 1em; 
+    background: white;
+    animation: fadeIn;
+    animation-duration: 2s;
 }
 
 .menu {
@@ -27,13 +47,83 @@ body {
     margin-right: 2em;
     align-self: center;
     text-decoration: none;
+    color: darkblue;
+}
+
+.menu>a:hover {
+    font-weight: 500;
 }
 
 .head-banner {
-    height: 600px;
-    object-fit: cover;
-    width: 100%;
-    margin: none;
-    object-position: 0% 50%;
-    filter: contrast(2.5)hue-rotate(190deg);
+    z-index: 1;
 }
+
+.banner {
+    /* min-height: 100%;
+    object-fit: cover; */
+    display: flex;
+    width: 100%;
+    filter: contrast(2.5)hue-rotate(190deg);
+    margin-top: 2em;
+    animation: fadeInUp;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    z-index: 1;
+}  
+
+.code-icons {
+    display: flex;
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
+.code-icons>li>img {
+    width: 1em;
+}
+
+.tagline {
+    position: relative;
+    font-size: 2em;
+    margin-top: 5em;
+    text-align: center;
+    z-index: 2;
+    text-transform: uppercase;
+    animation: fadeIn;
+}
+
+@keyframes fadeInUp {
+    0% {
+        margin-top: 100%;
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0.5;
+    }
+
+    100% {
+        margin-top: 2em;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
