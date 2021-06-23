@@ -1,14 +1,30 @@
 
-// window.onscroll = function() {getSticky()};
+// Stocky Menu/header //
 
-// var header = document.getElementById('mainHeader');
+// TAGLINE
 
-// var sticky = header.offsetTop;
+window.onscroll = function() {
+  var tagline = $('.tagline');
+  if ((window.pageYOffset) > 25) {
+    tagline.addClass("tagline-fade-out")  
+  } 
+  else if ((window.pageYOffset) <= 25) {
+    tagline.removeClass("tagline-fade-out")  
+    tagline.addClass(".tagline")
+  }
+}
 
-// function getSticky() {
-//   if (window.pageYOffset > sticky) {
-//     header.classList.add("sticky");
-//   } else {
-//     header.classList.remove("sticky");
-//   }
-// }
+// $('.code-icons').fadeIn;
+
+
+// var banner = document.getElementById('main-banner');
+
+
+
+
+
+
+
+// $(function() {
+  // console.log(window.pageYOffset)
+// });

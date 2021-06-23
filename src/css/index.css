@@ -5,6 +5,10 @@ body {
     color: darkblue;
 }
 
+.wrapper {
+    margin: auto;
+}
+
 .logo {
     width: 3em;
 }
@@ -16,6 +20,7 @@ body {
 .logo-container {
     color: darkblue;
     display: flex;
+    margin-left: 4em;
 }
 
 .logo-container>p {
@@ -30,17 +35,41 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-    max-width: 1024px;
     margin: auto;
-    margin-top: 2.5em;
-    margin-bottom: 1em; 
+    padding-top: 2em;
+    padding-bottom: 2em; 
+    padding-left: auto;
     background: white;
     animation: fadeIn;
     animation-duration: 2s;
+    animation-fill-mode: forwards;
+
 }
+
+.header-wrapper {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    margin: auto;
+    width: 100%;
+}
+
+/* .sticky {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    animation: none;
+    margin: auto;
+    margin-top: 2.5em;
+    margin-bottom: 1em; 
+} */
 
 .menu {
     display: flex;
+    margin-right: 4em;
 }
 
 .menu>a {
@@ -56,6 +85,8 @@ body {
 
 .head-banner {
     z-index: 1;
+    position: relative;
+    display: flex;
 }
 
 .banner {
@@ -74,7 +105,8 @@ body {
 
 .code-icons {
     display: flex;
-    text-align: center;
+    justify-content: center;
+    padding-left: 0;
 }
 
 li {
@@ -82,17 +114,30 @@ li {
 }
 
 .code-icons>li>img {
-    width: 1em;
+    width: 1.2em;
+    text-align: center;
+}
+
+.code-icons>li {
+    margin: auto;
 }
 
 .tagline {
-    position: relative;
+    position: absolute;
     font-size: 2em;
     margin-top: 5em;
-    text-align: center;
+    margin-left: 43%;
     z-index: 2;
     text-transform: uppercase;
     animation: fadeIn;
+    animation-duration: 1s;
+}
+
+.tagline-fade-out {
+    animation: fadeOut;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
 }
 
 @keyframes fadeInUp {
@@ -125,5 +170,13 @@ li {
     }
 }
 
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
 
+    100% {
+        opacity: 0;
+    }
+}
 

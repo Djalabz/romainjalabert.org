@@ -4,40 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <!-- <link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.css"> -->
+
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="icon" 
     type="image/png" 
     href="../public/images/favicon.png">
 
-    <title>Romain Jalabert // Web Developer Freelance</title>
+    <title>Romain Jalabert // Web Developer Freelance //</title>
 </head>
 
 <body>
 
-
-<div class='header' id='mainHeader'> 
-    <div class="logo-container">
-        <img src="../public/images/jalab_logo@2x.jpg" alt="" class="logo">
-        <p><span>Romain Jalabert</span> // Web Developer Freelance</p>
-    </div>
-    
-    <div class="menu">
-      <a href='#about'>About</a>
-      <a href='#about'>Portfolio</a>
-      <a href='#about'>Serivces</a>
-      <a href='#about'>Contact</a>  
+<div class="wrapper">
+<div class="header-wrapper">
+    <div class='header' id='mainHeader'> 
+        <div class="logo-container">
+            <img src="../public/images/jalab_logo@2x.jpg" alt="" class="logo">
+            <p><span>Romain Jalabert</span> // Web Developer Freelance</p>
+        </div>
+        
+        <div class="menu">
+        <a href='#about'>About</a>
+        <a href='#portfolio'>Portfolio</a>
+        <a href='#services'>Serivces</a>
+        <a href='#contact'>Contact</a>  
+        </div>
     </div>
 </div>
 
-<script type="text/javascript" src="./app.js"></script>
 
-<div class="head-banner">
-    <div class='tagline' >Welcome !
+
+
+<div class="head-banner" id="main-banner">
+    <div class='tagline' id='main-tagline'>Welcome !
         <ul class='code-icons'>
             <li><img src='../public/images/html.png'></img></li>
             <li><img src='../public/images/css-3.png'></img></li>
@@ -48,18 +50,28 @@
     <img src="../public/images/montmartre.jpg" alt="" class="banner">
 </div>
 
-<div class="about-container" id='about'>
+<section class="about-container" id='about'>
     <br>
     ABOUT WHUT ??
+</section>
+
+<section class="portfolio-container" id='portfolio'>
+    STUFF IS MINE : 
+</section>
+
+<section class="services-container" id='services'>
+    I SERVE YOU SERVE
+</section>
+
+<section class="contact-container" id='contact'>
+    YEAH
+</section>
+
+<!-- SCRIPTS --> 
+
+<script type="text/javascript" src="./app.js"></script>
+
 </div>
-
-<div class="portfolio-container"></div>
-
-<div class="services-container"></div>
-
-<div class="contact-container"></div>
-
-
 
 </body> 
 
