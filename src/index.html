@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -17,6 +17,8 @@
 </head>
 
 <body>
+
+    <canvas id='bg'></canvas>
 
 <div class="wrapper">
 <div class="header-wrapper">
@@ -50,26 +52,44 @@
     <img src="../public/images/montmartre.jpg" alt="" class="banner">
 </div>
 
-<section class="about-container" id='about'>
+<section class="container" id='about'>
     <br>
-    ABOUT WHUT ??
+    <h2>ABOUT</h2>
+    <p class="lorem"> </p>
 </section>
 
-<section class="portfolio-container" id='portfolio'>
-    STUFF IS MINE : 
+<section class="container" id='portfolio'>
+    <h2>STUFF IS MINE : </h2>
+    <div class="portfolio-gallery">
+        <ul class="portfolio-list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+        </ul>
+    </div>
 </section>
 
-<section class="services-container" id='services'>
-    I SERVE YOU SERVE
+
+
+<section class="container" id='services'>
+    <h2>I SERVE YOU SERVE : </h2>
 </section>
 
-<section class="contact-container" id='contact'>
+<section class="container" id='contact'>
     YEAH
 </section>
 
-<!-- SCRIPTS --> 
+<!-- SCRIPTS  -->
 
-<script type="text/javascript" src="./app.js"></script>
+<script type="text/javascript" src="./app.js"></script> 
+<script type="module" src="./main.js"></script>
+<script src='../node_modules/three/build/three.js'></script>
+<script src='../node_modules/three-orbitcontrols/OrbitControls.js'></script>
 
 </div>
 

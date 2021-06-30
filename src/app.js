@@ -1,30 +1,28 @@
-
-// Stocky Menu/header //
-
-// TAGLINE
+// TAGLINE AND BANNER FADE
 
 window.onscroll = function() {
+
+
   var tagline = $('.tagline');
-  if ((window.pageYOffset) > 25) {
-    tagline.addClass("tagline-fade-out")  
+  var banner = $('.banner');
+  var menu = $('.header-wrapper');
+  var three = $('#bg')
+
+  if ((window.pageYOffset) > 25 && (window.pageYOffset) < 400) {
+    tagline.addClass("fade-out")
+    banner.removeClass('fade-out')
   } 
   else if ((window.pageYOffset) <= 25) {
-    tagline.removeClass("tagline-fade-out")  
-    tagline.addClass(".tagline")
+    tagline.removeClass("fade-out")  
   }
+  else if ((window.pageYOffset) > 399) {
+    banner.addClass('fade-out')
+  }
+  // else if ((window.pageYOffset) > 599) {
+  //   three.attr('#bg', '#canvas-in')
+  // }
+  else if ((window.pageYOffset) < 600) {
+    three.hide()
+  }        
 }
 
-// $('.code-icons').fadeIn;
-
-
-// var banner = document.getElementById('main-banner');
-
-
-
-
-
-
-
-// $(function() {
-  // console.log(window.pageYOffset)
-// });
