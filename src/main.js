@@ -1,4 +1,3 @@
-
 // Setup
 
 const scene = new THREE.Scene();
@@ -10,36 +9,27 @@ const renderer = new THREE.WebGLRenderer({
   alpha: true, 
 });
 
+
 renderer.setPixelRatio(window.devicePixelRatio);
+
+const canvas = renderer.domElement
+
+if (canvas.width !== canvas.clientWidth || canvas.height !== canvas.clientHeight) {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
 
 // Responsive canvas
 
-// window.addEventListener('resize', function() {
+window.addEventListener('resize', function() {
 
-//         camera.aspect = window.innerWidth / window.innerHeight;
-//         camera.updateProjectionMatrix();
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix(); 
 
-//         renderer.setSize(window.innerWidth, window.innerHeight);
-        
-// });
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-
-function resizeCanvasToDisplaySize() {
-  const canvas = renderer.domElement;
-  // look up the size the canvas is being displayed
-  const width = canvas.clientWidth;
-  const height = canvas.clientHeight;
-
-  // adjust displayBuffer size to match
-  if (canvas.width !== width || canvas.height !== height) {
-    // you must pass false here or three.js sadly fights the browser
-    renderer.setSize(width, height, false);
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-
-    // update any render target sizes here
-  }
-}
+  }       
+);             
 
 
 camera.position.setZ(30);
@@ -49,10 +39,11 @@ renderer.render(scene, camera);
 
 // Torus
 
-const geometry = new THREE.TorusKnotGeometry( 7, 2, 200, 16 );
+const geometry = new THREE.TorusKnotGeometry( 5, 2, 200, 16 );
 const material = new THREE.MeshStandardMaterial({ color: 0x4771FF, wireframe: true });
 const torus = new THREE.Mesh(geometry, material);
-torus.position.y = -5
+torus.position.y = 7
+torus.position.x = -3
 
 scene.add(torus);
 
@@ -60,15 +51,15 @@ animate()
 
 // Icosahedron
 
-const icoGeometry = new THREE.IcosahedronGeometry(8, 2);
-const icosa = new THREE.Mesh(icoGeometry, material);
-icosa.position.y = 7;
-icosa.position.x = -2.7;
+// const icoGeometry = new THREE.IcosahedronGeometry(8, 2);
+// const icosa = new THREE.Mesh(icoGeometry, material);
+// icosa.position.y = 7;
+// icosa.position.x = -2.7;
 
 
-scene.add(icosa);
+// scene.add(icosa);
 
-animate()
+// animate()
 
 
 // Lights
@@ -90,8 +81,6 @@ scene.add(pointLight, ambientLight);
 // Animation Loop
 
 function animate() {
-
-  resizeCanvasToDisplaySize();
 
   requestAnimationFrame(animate);
 

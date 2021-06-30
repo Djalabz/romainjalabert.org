@@ -18,9 +18,6 @@ window.onscroll = function() {
   else if ((window.pageYOffset) > 399) {
     banner.addClass('fade-out')
   }
-  // else if ((window.pageYOffset) > 599) {
-  //   three.attr('#bg', '#canvas-in')
-  // }
   else if ((window.pageYOffset) < 600) {
     three.hide()
   }        

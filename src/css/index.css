@@ -88,7 +88,6 @@ body {
 }
 
 .head-banner {
-    z-index: 1;
     position: relative;
     display: flex;
 }
@@ -109,6 +108,7 @@ body {
     display: flex;
     justify-content: center;
     padding-left: 0;
+
 }
 
 li {
@@ -118,6 +118,7 @@ li {
 .code-icons>li>img {
     width: 1.2em;
     text-align: center;
+    z-index: 5;
 }
 
 .code-icons>li {
@@ -130,7 +131,7 @@ li {
     font-weight: 340;
     margin-top: 5em;
     margin-left: 43%;
-    z-index: 3;
+    z-index: 5;
     text-transform: uppercase;
     animation: fadeIn;
     animation-duration: 1s;
@@ -165,7 +166,7 @@ li {
     }
 
     100% {
-        margin-top: 6em;
+        margin-top: 7em;
         opacity: 1;
     }
 }
@@ -234,6 +235,7 @@ canvas {
     z-index: 2;
     width: 100%;
     height: 100%;
+    opacity: 30%;
 }
 
 #canvas-in {
