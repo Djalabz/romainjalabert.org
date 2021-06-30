@@ -12,20 +12,38 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 
-// responsive
-    window.addEventListener('resize', function() {
+// Responsive canvas
 
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
+// window.addEventListener('resize', function() {
 
-        renderer.setSize(window.innerWidth, window.innerHeight);
+//         camera.aspect = window.innerWidth / window.innerHeight;
+//         camera.updateProjectionMatrix();
+
+//         renderer.setSize(window.innerWidth, window.innerHeight);
         
-    });
+// });
+
+
+function resizeCanvasToDisplaySize() {
+  const canvas = renderer.domElement;
+  // look up the size the canvas is being displayed
+  const width = canvas.clientWidth;
+  const height = canvas.clientHeight;
+
+  // adjust displayBuffer size to match
+  if (canvas.width !== width || canvas.height !== height) {
+    // you must pass false here or three.js sadly fights the browser
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    // update any render target sizes here
+  }
+}
 
 
 camera.position.setZ(30);
 camera.position.setX(-3);
-
 
 renderer.render(scene, camera);
 
@@ -69,70 +87,12 @@ scene.add(pointLight, ambientLight);
 
 // const controls = new OrbitControls(camera, renderer.domElement);
 
-// function addStar() {
-//   const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-//   const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-//   const star = new THREE.Mesh(geometry, material);
-
-//   const [x, y, z] = Array(3)
-//     .fill()
-//     .map(() => THREE.MathUtils.randFloatSpread(100));
-
-//   star.position.set(x, y, z);
-//   scene.add(star);
-// }
-
-// Array(200).fill().forEach(addStar);
-
-// Background
-
-// const spaceTexture = new THREE.TextureLoader().load('../public/images/space.jpg');
-// scene.background = new THREE.Color( 0xffffff );
-
-
-// Moon
-
-// const moonTexture = new THREE.TextureLoader().load('../public/images/moon.jpg');
-// const normalTexture = new THREE.TextureLoader().load('../public/images/normal.jpg');
-
-// const moon = new THREE.Mesh(
-//   new THREE.SphereGeometry(3, 32, 32),
-//   new THREE.MeshStandardMaterial({
-//     map: moonTexture,
-//     normalMap: normalTexture,
-//   })
-// );
-
-// scene.add(moon);
-
-// moon.position.z = 30;
-// moon.position.setX(-10);
-
-// jeff.position.z = -5;
-// jeff.position.x = 2;
-
-// Scroll Animation
-
-// function moveCamera() {
-//   const t = document.body.getBoundingClientRect().top;
-//   moon.rotation.x += 0.05;
-//   moon.rotation.y += 0.075;
-//   moon.rotation.z += 0.05;
-
-//   jeff.rotation.y += 0.01;
-//   jeff.rotation.z += 0.01;
-
-//   camera.position.z = t * -0.01;
-//   camera.position.x = t * -0.0002;
-//   camera.rotation.y = t * -0.0002;
-// }
-
-// document.body.onscroll = moveCamera;
-// moveCamera();
-
 // Animation Loop
 
 function animate() {
+
+  resizeCanvasToDisplaySize();
+
   requestAnimationFrame(animate);
 
   torus.rotation.x += 0.01;
@@ -142,6 +102,7 @@ function animate() {
 //   moon.rotation.x += 0.005;
 
   // controls.update();
+
 
   renderer.render(scene, camera);
 }
