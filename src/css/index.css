@@ -14,23 +14,31 @@ body {
 .logo {
     width: 3em;
     height: 3em;
+    border-radius: 100px;
+    margin-right: 8em;
+    cursor: pointer;
 }
 
-.logo:hover {
-    animation: 'pulse';
+
+.logo-bounce {
+    animation: bounceOff;
+    animation-name: bounceOff;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+
 }
 
-.logo-container {
+.title-container {
     color: darkblue;
     display: flex;
     margin-left: 4em;
 }
 
-.logo-container>p {
+.title-container>p {
     margin-left: 1.5em;
 }
 
-.logo-container>p>span {
+.title-container>p>span {
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -40,14 +48,11 @@ body {
     display: flex;
     justify-content: space-between;
     margin: auto;
-    padding-top: 1em;
+    margin-top: 2em;
     padding-bottom: 1em; 
-    padding-left: auto;
-    background: white;
     animation: fadeIn;
     animation-duration: 2s;
     animation-fill-mode: forwards;
-
 }
 
 .header-wrapper {
@@ -58,6 +63,8 @@ body {
     margin: auto;
     width: 100%;
 }
+
+
 
 .sticky {
     display: flex;
@@ -72,24 +79,43 @@ body {
 } 
 
 .menu {
-    display: flex;
-    margin-right: 4em;
+    display: none;
+    width: calc(70vh - 4em);
+    height: calc(100%);
+    position: fixed;
+    right: 0;
+    background-color: darkblue;
+    animation: slide-menu 0.3s ease-in forwards;
+    transform: scaleX(0);
+    transform-origin: right;
+    margin-top: -2em;
 }
 
-.menu>a {
-    margin-right: 2em;
-    align-self: center;
+.menu>ul {
+    margin-top: 5em;
+}
+
+.menu>ul>li {
+    color: white;
+    font-size: 5em;
+}
+
+.menu-list>li>a {
+    color: white;
     text-decoration: none;
-    color: darkblue;
-}
-
-.menu>a:hover {
-    font-weight: 500;
+    text-transform: none;
+    animation: fadeIn 0.9s ease-in forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
 }
 
 .head-banner {
     position: relative;
     display: flex;
+}
+
+.open {
+    display: block;
 }
 
 .banner {
@@ -108,7 +134,6 @@ body {
     display: flex;
     justify-content: center;
     padding-left: 0;
-
 }
 
 li {
@@ -129,7 +154,7 @@ li {
     position: absolute;
     font-size: 2em;
     font-weight: 340;
-    margin-top: 5em;
+    margin-top: 6em;
     margin-left: 43%;
     z-index: 5;
     text-transform: uppercase;
@@ -141,7 +166,7 @@ li {
     animation: fadeOut;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-    animation-duration: 1s;
+    animation-duration: 0.3s;
 }
 
 .fade-out-down {
@@ -150,6 +175,39 @@ li {
     animation-iteration-count: 1;
     animation-duration: 1.5s;
 }
+
+.fade-out-left {
+    animation: fadeOutLeft;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes bounceOff {
+    from {
+        width: 3em;
+        height: 3em;
+    }
+    to {
+        width: 0em;
+        height: 0em;
+    }
+}
+
+
+@keyframes slide-menu {
+    from {
+      -webkit-transform: scaleX(0);
+              transform: scaleX(0);
+    }
+    to {
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1);
+    }
+  }
+  
+
 
 @keyframes fadeInUp {
     0% {
@@ -166,11 +224,15 @@ li {
     }
 
     100% {
-        margin-top: 7em;
+        margin-top: 8em;
         opacity: 1;
     }
 }
 
+
+/* @media (max-width: 12450px) */
+
+ 
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -179,7 +241,7 @@ li {
     100% {
         opacity: 1;
     }
-}
+} 
 
 @keyframes fadeOut {
     0% {
@@ -211,6 +273,24 @@ li {
     }
 }
 
+@keyframes fadeOutLeft {
+    0% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0.5;
+    }
+
+    75% {
+        opacity: 0.1;
+    }
+
+    100% {
+        margin-left: 1em;
+        opacity: 0;
+    }
+}
 
 
 .container {
@@ -238,11 +318,14 @@ canvas {
     opacity: 30%;
 }
 
-#canvas-in {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
+.portfolio-gallery {
+    margin-top: 5em;
 }
 
+.portfolio-list {
+        display: grid;
+        grid-template-columns: 100px 100px 100px;
+        column-gap: 100px;
+        row-gap: 40px;
+}
 

@@ -12,14 +12,14 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 
+
+// Responsive canvas + client.width = width
+
 const canvas = renderer.domElement
 
 if (canvas.width !== canvas.clientWidth || canvas.height !== canvas.clientHeight) {
     renderer.setSize(window.innerWidth, window.innerHeight);
-}
-
-
-// Responsive canvas
+} 
 
 window.addEventListener('resize', function() {
 
@@ -42,8 +42,8 @@ renderer.render(scene, camera);
 const geometry = new THREE.TorusKnotGeometry( 5, 2, 200, 16 );
 const material = new THREE.MeshStandardMaterial({ color: 0x4771FF, wireframe: true });
 const torus = new THREE.Mesh(geometry, material);
-torus.position.y = 7
-torus.position.x = -3
+torus.position.y = 6.5
+torus.position.x = -2.6
 
 scene.add(torus);
 
@@ -70,13 +70,13 @@ pointLight.position.set(5, 5, 5);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
-// Helpers
+Helpers
 
-// const lightHelper = new THREE.PointLightHelper(pointLight)
-// const gridHelper = new THREE.GridHelper(200, 50);
-// scene.add(lightHelper, gridHelper)
+const lightHelper = new THREE.PointLightHelper(pointLight)
+const gridHelper = new THREE.GridHelper(200, 50);
+scene.add(lightHelper, gridHelper)
 
-// const controls = new OrbitControls(camera, renderer.domElement);
+const controls = new OrbitControls(camera, renderer.domElement);
 
 // Animation Loop
 
